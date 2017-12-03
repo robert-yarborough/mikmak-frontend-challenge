@@ -12,8 +12,7 @@ export default class Slider extends Component {
 		this.state = {
 			images: [],
 			index: 0,
-			translateValue: 0,
-			autoplay: false
+			translateValue: 0
 		}
 	};
 
@@ -55,21 +54,7 @@ export default class Slider extends Component {
 	};
 
 
-	componentDidUpdate = (prevProps, prevState) => {
-		const { autoplay } = this.state;
 
-		if(autoplay && prevState.autoplay !== autoplay) {
-			let x = window.setInterval(() =>  {
-				this.goToNextSlide()
-			}, 2500);
-
-			this.setState({ interval : x });
-		}
-		else if(!autoplay && prevState.autoplay !== autoplay) {
-			let x = window.clearInterval(this.state.interval);
-			this.setState({ interval : x });
-		}
-	};
 	render() {
 		const { images, index, translateValue } = this.state;
 		return (

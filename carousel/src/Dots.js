@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Dot from './Dot'
 
@@ -23,6 +22,6 @@ const Dots = ({ index, quantity, dotClick }) => {
 			{ dots }
 		</div>
 	)
-}
+};
 
 export default Dots

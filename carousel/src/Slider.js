@@ -14,6 +14,7 @@ export default class Slider extends Component {
 			index: 0,
 			translateValue: 0
 		}
+
 	};
 
 	componentDidMount = () => {
@@ -53,32 +54,6 @@ export default class Slider extends Component {
 		}
 	};
 
-
-
-	render() {
-		const { images, index, translateValue } = this.state;
-		return (
-			<div className="slider">
-				<div className="slider-wrapper"
-					 style={{
-						 transform: `translateX(${translateValue}px)`,
-						 transition: 'transform ease-out 0.35s'
-					 }}>
-					{ this.renderSlides() }
-				</div>
-
-
-				<Dots
-					index={index}
-					quantity={images.length}
-					dotClick={this.handleDotClick} />
-
-				<SliderLeftArrow prevSlide={this.goToPreviousSlide} />
-				<SliderRightArrow nextSlide={this.goToNextSlide} />
-			</div>
-		)
-	}
-
 	goToPreviousSlide = () => {
 		if(this.state.index === 0)
 			return;
@@ -110,6 +85,33 @@ export default class Slider extends Component {
 		console.log('slide',slide);
 		return slide.clientWidth;
 	}
+
+
+
+	render() {
+		const { images, index, translateValue } = this.state;
+		return (
+			<div className="slider">
+				<div className="slider-wrapper"
+					 style={{
+						 transform: `translateX(${translateValue}px)`,
+						 transition: 'transform ease-out 0.35s'
+					 }}>
+					{ this.renderSlides() }
+				</div>
+
+
+				<Dots
+					index={index}
+					quantity={images.length}
+					dotClick={this.handleDotClick} />
+
+				<SliderLeftArrow prevSlide={this.goToPreviousSlide} />
+				<SliderRightArrow nextSlide={this.goToNextSlide} />
+			</div>
+		)
+	}
+
 
 
 }; // End Class

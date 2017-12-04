@@ -3,7 +3,7 @@ import Dot from './Dot'
 
 const Dots = ({ index, quantity, dotClick }) => {
 
-	let dots = []
+	let dots = [];
 
 	for(let i = 0; i < quantity; i++) {
 		let isActive = i === index ? true : false
